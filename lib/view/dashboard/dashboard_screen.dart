@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:multi_store_app/controller/dashboard_conroller.dart';
+import 'package:get/get.dart';
+import 'package:multi_store_app/controller/dashboard_controller.dart';
 import 'package:multi_store_app/view/home/home_screen.dart';
+import 'package:multi_store_app/view/product/product_screen.dart';
+
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -11,14 +13,13 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<DashboardController>(
       builder: (controller) => Scaffold(
+        backgroundColor: Colors.grey.shade100,
         body: SafeArea(
           child: IndexedStack(
             index: controller.tabIndex,
             children: [
               const HomeScreen(),
-              Container(
-                color: Colors.red,
-              ),
+              const ProductScreen(),
               Container(
                 color: Colors.blue,
               ),
@@ -34,7 +35,10 @@ class DashboardScreen extends StatelessWidget {
               border: Border(
                   top: BorderSide(
                       color: Theme.of(context).colorScheme.secondary,
-                      width: 0.7))),
+                      width: 0.7
+                  )
+              )
+          ),
           child: SnakeNavigationBar.color(
             behaviour: SnakeBarBehaviour.floating,
             snakeShape: SnakeShape.circle,
@@ -44,16 +48,14 @@ class DashboardScreen extends StatelessWidget {
             unselectedItemColor: Theme.of(context).colorScheme.secondary,
             showUnselectedLabels: true,
             currentIndex: controller.tabIndex,
-            onTap: (val) {
+            onTap: (val){
               controller.updateIndex(val);
             },
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.category), label: 'Category'),
+              BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Category'),
               BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'Menu'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.account_circle), label: 'Account')
+              BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Account')
             ],
           ),
         ),
