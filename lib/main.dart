@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-
 import 'package:multi_store_app/model/ad_banner.dart';
 import 'package:multi_store_app/model/category.dart';
 import 'package:multi_store_app/model/product.dart';
@@ -9,10 +8,9 @@ import 'package:multi_store_app/route/app_page.dart';
 import 'package:multi_store_app/route/app_route.dart';
 import 'package:multi_store_app/theme/app_theme.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- await Hive.initFlutter();
+  await Hive.initFlutter();
 
   //register adapters
   Hive.registerAdapter(AdBannerAdapter());

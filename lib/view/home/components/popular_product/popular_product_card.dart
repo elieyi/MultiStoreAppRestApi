@@ -1,8 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
-
 import 'package:flutter/material.dart';
 import 'package:multi_store_app/const.dart';
-
 import 'package:shimmer/shimmer.dart';
 
 import '../../../../model/product.dart';
@@ -27,14 +25,16 @@ class PopularProductCard extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 0.9,
                 child: CachedNetworkImage(
-                  imageUrl: baseUrl + product.images.first,
+                  imageUrl: baseUrl+product.images.first,
                   placeholder: (context, url) => Shimmer.fromColors(
                     highlightColor: Colors.white,
                     baseColor: Colors.grey.shade300,
                     child: Container(
                       color: Colors.grey,
                       padding: const EdgeInsets.all(15),
-                      margin: const EdgeInsets.symmetric(horizontal: 25),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 25
+                      ),
                     ),
                   ),
                   errorWidget: (context, url, error) => const Center(
@@ -50,7 +50,10 @@ class PopularProductCard extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10, bottom: 10),
                 child: Text(
                   product.name,
-                  style: const TextStyle(color: Colors.black, fontSize: 14),
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 14
+                  ),
                   maxLines: 1,
                 ),
               )

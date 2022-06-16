@@ -3,14 +3,12 @@ import 'package:multi_store_app/model/ad_banner.dart';
 import 'package:multi_store_app/model/category.dart';
 import 'package:multi_store_app/model/product.dart';
 import 'package:multi_store_app/service/local_service/local_ad_banner_service.dart';
-import 'package:multi_store_app/service/local_service/local_category_service.dart';
 import 'package:multi_store_app/service/local_service/local_product_service.dart';
 import 'package:multi_store_app/service/remote_service/remote_banner_service.dart';
 import 'package:multi_store_app/service/remote_service/remote_popular_category_service.dart';
-import 'package:multi_store_app/service/remote_service/remote_popular_product_service.dart';
 
-
-
+import '../service/local_service/local_category_service.dart';
+import '../service/remote_service/remote_popular_product_service.dart';
 
 class HomeController extends GetxController {
   static HomeController instance = Get.find();

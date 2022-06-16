@@ -7,14 +7,13 @@ import 'package:shimmer/shimmer.dart';
 
 class PopularCategoryCard extends StatelessWidget {
   final Category category;
-  const PopularCategoryCard({Key? key,
-    required this.category
-  }) : super(key: key);
+  const PopularCategoryCard({Key? key, required this.category})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10, 10, 5, 10),
+      padding: const EdgeInsets.fromLTRB(10, 5, 5, 10),
       child: CachedNetworkImage(
         imageUrl: baseUrl + category.image,
         imageBuilder: (context, imageProvider) => Material(
@@ -27,17 +26,16 @@ class PopularCategoryCard extends StatelessWidget {
             decoration: BoxDecoration(
                 color: Colors.grey.shade300,
                 borderRadius: BorderRadius.circular(10),
-              image: DecorationImage(image: imageProvider, fit: BoxFit.cover)
-            ),
+                image:
+                    DecorationImage(image: imageProvider, fit: BoxFit.cover)),
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Text(
                 category.name,
                 style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white
-                ),
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 20, 162, 209)),
               ),
             ),
           ),
@@ -54,8 +52,7 @@ class PopularCategoryCard extends StatelessWidget {
               height: 140,
               decoration: BoxDecoration(
                   color: Colors.grey.shade300,
-                  borderRadius: BorderRadius.circular(10)
-              ),
+                  borderRadius: BorderRadius.circular(10)),
             ),
           ),
         ),
@@ -68,8 +65,7 @@ class PopularCategoryCard extends StatelessWidget {
             height: 140,
             decoration: BoxDecoration(
                 color: Colors.grey.shade300,
-                borderRadius: BorderRadius.circular(10)
-            ),
+                borderRadius: BorderRadius.circular(10)),
             child: const Center(
               child: Icon(
                 Icons.error_outline,

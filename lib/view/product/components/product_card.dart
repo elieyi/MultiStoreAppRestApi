@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_store_app/const.dart';
+import 'package:multi_store_app/model/product.dart';
 
 import 'package:shimmer/shimmer.dart';
 
-import '../../../model/product.dart';
+
 
 class ProductCard extends StatelessWidget {
   final Product product;
